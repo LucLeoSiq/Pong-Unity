@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class P1_PlayerMovement : MonoBehaviour
 {
     public float speed = 10f;
     public Rigidbody rb;
@@ -18,9 +18,19 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayerYMovement()
     {
-        float verticalInput = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(0f, verticalInput, 0f);
-        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        float movementY = 0f;
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            movementY = 1f;
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            movementY = -1f;
+        }
+
+        Vector3 movement = new Vector3(0f, movementY, 0f) * speed;
+        rb.velocity = movement;
     }
 
     void MovementLimit()
