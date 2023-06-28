@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class P1_PlayerMovement : MonoBehaviour
+public class P2_PlayerMovement : MonoBehaviour
 {
     public float speed = 10f;
     public Rigidbody rb;
@@ -20,11 +20,11 @@ public class P1_PlayerMovement : MonoBehaviour
     {
         float movementY = 0f;
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             movementY = 1f;
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.DownArrow))
         {
             movementY = -1f;
         }
