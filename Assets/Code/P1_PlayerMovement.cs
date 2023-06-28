@@ -5,7 +5,7 @@ using UnityEngine;
 public class P1_PlayerMovement : MonoBehaviour
 {
     public float speed = 10f;
-    public Rigidbody rb;
+    public Rigidbody2D rb2d;
 
     public float minY = -5f;
     public float maxY = 5f;
@@ -30,7 +30,7 @@ public class P1_PlayerMovement : MonoBehaviour
         }
 
         Vector3 movement = new Vector3(0f, movementY, 0f) * speed;
-        rb.velocity = movement;
+        rb2d.velocity = movement;
     }
 
     void MovementLimit()
