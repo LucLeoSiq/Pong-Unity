@@ -22,31 +22,39 @@ public class BallSpawn : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Bounce"))
-        {
-            speedY = speedY * -1;
-            speedX = speedX * -1;
-        }
-
         if (other.CompareTag("Boundary"))
         {
-            speedY = speedY * -1;
+            speedY *= -1;
+            Debug.Log("Tag: Boundary");
         }
 
         else if (other.CompareTag("UpperPaddle"))
         {
-
+            speedX *= -1;
+            speedY = 1;
+            Debug.Log("Tag: Upper Paddle");
         }
 
         else if (other.CompareTag("MiddlePaddle"))
         {
-
+            speedX *= -1;
+            speedY = 0;
+            Debug.Log("Tag: Middle Paddle");
         }
 
         else if (other.CompareTag("LowerPaddle"))
         {
-
+            speedX *= -1;
+            speedY = -1;
+            Debug.Log("Tag: Lower Paddle");
         }
 
+    }
+
+    [NaughtyAttributes.Bi]
+    void ResetBall()
+    {
+        transform.position = Vector3.zero;
+        speedY = 0;
     }
 }   
