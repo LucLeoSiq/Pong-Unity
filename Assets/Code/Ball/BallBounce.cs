@@ -8,6 +8,7 @@ public class BallBounce : MonoBehaviour
     public float speedY = 2;
     public float speedX = 5;
     public GameObject thisObject;
+    public bool isMoving = false;
     
     private bool bounceCooldown = false;
 
@@ -15,13 +16,17 @@ public class BallBounce : MonoBehaviour
     {
         thisObject.SetActive(true);
         transform.position = Vector3.zero;
+        isMoving = true;
     }
 
     void Update()
     {
-        transform.Translate(Vector3.right * speedX * Time.deltaTime);
-        transform.Translate(Vector3.down * speedY * Time.deltaTime);
-    }
+        if (isMoving)
+        {
+            transform.Translate(Vector3.right * speedX * Time.deltaTime);
+            transform.Translate(Vector3.down * speedY * Time.deltaTime);
+        }
+    }   
 
     private void OnTriggerEnter2D(Collider2D other)
     {

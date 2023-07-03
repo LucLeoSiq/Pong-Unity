@@ -10,8 +10,7 @@ TagManager:
   - LowerPaddle
   - Boundary
   - Ball
-  - P1_Backzone
-  - P2_Backzone
+  - BackZone
   layers:
   - Default
   - TransparentFX
