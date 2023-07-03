@@ -54,11 +54,6 @@ public class BallBounce : MonoBehaviour
             StartCoroutine(ActivateBounceCooldown());
             Debug.Log("Tag: Lower Paddle");
         }
-
-        else if (other.CompareTag("P1_BackZone")) 
-        {
-
-        }
     }
 
     private IEnumerator ActivateBounceCooldown()
