@@ -36,7 +36,6 @@ public class BallReset : MonoBehaviour
     public void MoveInRandomDirection()
     {
         ballBounce.speedY = Random.Range(-0.5f, 0.5f);
-        ballBounce.speedX = ballBounce.startSpeed;
         ballBounce.isMoving = true;
     }
 }
