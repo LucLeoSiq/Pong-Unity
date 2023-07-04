@@ -5,6 +5,8 @@ using UnityEngine;
 public class BallReset : MonoBehaviour
 {
     public BallBounce ballBounce;
+    public SoundManager soundManager;
+
     private float delayTime = 0.1f;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -13,6 +15,7 @@ public class BallReset : MonoBehaviour
         {
             ResetBall();
             StartCoroutine(MoveAfterDelay());
+            soundManager.playScoreSFX();
         }
     }
 

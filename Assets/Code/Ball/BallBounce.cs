@@ -7,7 +7,10 @@ public class BallBounce : MonoBehaviour
 {
     public float speedY = 2;
     public float speedX = 10;
+
     public GameObject thisObject;
+    public SoundManager soundManager;
+
     public bool isMoving = false;
     
     private bool bounceCooldown = false;
@@ -32,6 +35,7 @@ public class BallBounce : MonoBehaviour
         if (other.CompareTag("Boundary"))
         {
             speedY *= -1;
+            soundManager.playBoundaryBounceSFX(); 
         }
 
         else if (other.CompareTag("UpperPaddle") && (bounceCooldown == false))
@@ -39,6 +43,7 @@ public class BallBounce : MonoBehaviour
             speedX *= -1;
             speedY = -1;
             StartCoroutine(ActivateBounceCooldown());
+            soundManager.playPaddleBounceSFX();
         }
 
         else if (other.CompareTag("MiddlePaddle") && (bounceCooldown == false))
@@ -46,6 +51,7 @@ public class BallBounce : MonoBehaviour
             speedX *= -1;
             speedY = 0;
             StartCoroutine(ActivateBounceCooldown());
+            soundManager.playPaddleBounceSFX();
         }
 
         else if (other.CompareTag("LowerPaddle") && (bounceCooldown == false))
@@ -53,6 +59,7 @@ public class BallBounce : MonoBehaviour
             speedX *= -1;
             speedY = 1;
             StartCoroutine(ActivateBounceCooldown());
+            soundManager.playPaddleBounceSFX();
         }
     }
 
