@@ -7,6 +7,7 @@ public class P1_PlayerMovement : MonoBehaviour
     public float speed = 10f;
     public Rigidbody2D rb2d;
 
+    [Header("Paddle Movement Boundary")]
     public float minY = -5f;
     public float maxY = 5f;
 

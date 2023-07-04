@@ -11,7 +11,7 @@ public class ScoreBoard : MonoBehaviour
 
     private void Start()
     {
-        UpdateTextMesh();
+        UpdateScore();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,7 +19,7 @@ public class ScoreBoard : MonoBehaviour
         IncreaseScore();
     }
 
-    private void UpdateTextMesh()
+    private void UpdateScore()
     {
         textMeshPro.text = score.ToString();
     }
@@ -28,6 +28,6 @@ public class ScoreBoard : MonoBehaviour
     public void IncreaseScore()
     {
         score += 1;
-        UpdateTextMesh();
+        UpdateScore();
     }
 }

@@ -6,8 +6,7 @@ using UnityEngine;
 public class BallBounce : MonoBehaviour
 {
     public float speedY = 2;
-    public float startSpeed = 4;
-    public float speedX;
+    public float speedX = 10;
     public GameObject thisObject;
     public bool isMoving = false;
     
@@ -15,9 +14,7 @@ public class BallBounce : MonoBehaviour
 
     void Start()
     {
-        thisObject.SetActive(true);
         transform.position = Vector3.zero;
-        speedX = startSpeed;
         isMoving = true;
     }
 
