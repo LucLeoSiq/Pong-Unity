@@ -35,7 +35,6 @@ public class BallBounce : MonoBehaviour
         if (other.CompareTag("Boundary"))
         {
             speedY *= -1;
-            //Debug.Log("Tag: Boundary");
         }
 
         else if (other.CompareTag("UpperPaddle") && (bounceCooldown == false))
@@ -43,8 +42,6 @@ public class BallBounce : MonoBehaviour
             speedX *= -1;
             speedY = -1;
             StartCoroutine(ActivateBounceCooldown());
-            //Debug.Log("Tag: Upper Paddle");
-            //IncreaseBallSpeed(1);
         }
 
         else if (other.CompareTag("MiddlePaddle") && (bounceCooldown == false))
@@ -52,8 +49,6 @@ public class BallBounce : MonoBehaviour
             speedX *= -1;
             speedY = 0;
             StartCoroutine(ActivateBounceCooldown());
-            //Debug.Log("Tag: Middle Paddle");
-            //IncreaseBallSpeed(1);
         }
 
         else if (other.CompareTag("LowerPaddle") && (bounceCooldown == false))
@@ -61,39 +56,15 @@ public class BallBounce : MonoBehaviour
             speedX *= -1;
             speedY = 1;
             StartCoroutine(ActivateBounceCooldown());
-            //Debug.Log("Tag: Lower Paddle");
-            //IncreaseBallSpeed(1);
         }
     }
 
     private IEnumerator ActivateBounceCooldown()
     {
         bounceCooldown = true;
-        //Debug.Log("BounceCooldown activated!");
 
         yield return new WaitForSeconds(0.01f);
 
         bounceCooldown = false;
-        //Debug.Log("BounceCooldown over!");
-    }
-
-    [NaughtyAttributes.Button]
-    void ResetBall()
-    {
-        transform.position = Vector3.zero;
-        speedY = 0;
-    }
-
-    void IncreaseBallSpeed(float increaseSpeedBy)
-    {
-        if ((speedX > 0) && (speedX < 10))
-        {
-            speedX += increaseSpeedBy;
-        }
-
-        if ((speedX < 0) && (speedX < -10))
-        {
-            speedX -= increaseSpeedBy;
-        }
     }
 }   

@@ -5,13 +5,12 @@ using UnityEngine;
 public class BallReset : MonoBehaviour
 {
     public BallBounce ballBounce;
-    public float delayTime = 1f;
+    private float delayTime = 0.1f;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("BackZone"))
         {
-            Debug.Log("Tag: BackZone");
             ResetBall();
             StartCoroutine(MoveAfterDelay());
         }
@@ -29,6 +28,7 @@ public class BallReset : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
             
         MoveInRandomDirection();
+
         yield return null;        
     }
 
