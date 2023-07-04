@@ -6,7 +6,8 @@ using UnityEngine;
 public class BallBounce : MonoBehaviour
 {
     public float speedY = 2;
-    public float speedX = 5;
+    public float startSpeed = 4;
+    public float speedX;
     public GameObject thisObject;
     public bool isMoving = false;
     
@@ -16,6 +17,7 @@ public class BallBounce : MonoBehaviour
     {
         thisObject.SetActive(true);
         transform.position = Vector3.zero;
+        speedX = startSpeed;
         isMoving = true;
     }
 
@@ -41,7 +43,8 @@ public class BallBounce : MonoBehaviour
             speedX *= -1;
             speedY = -1;
             StartCoroutine(ActivateBounceCooldown());
-            Debug.Log("Tag: Upper Paddle");
+            //Debug.Log("Tag: Upper Paddle");
+            //IncreaseBallSpeed(1);
         }
 
         else if (other.CompareTag("MiddlePaddle") && (bounceCooldown == false))
@@ -49,7 +52,8 @@ public class BallBounce : MonoBehaviour
             speedX *= -1;
             speedY = 0;
             StartCoroutine(ActivateBounceCooldown());
-            Debug.Log("Tag: Middle Paddle");
+            //Debug.Log("Tag: Middle Paddle");
+            //IncreaseBallSpeed(1);
         }
 
         else if (other.CompareTag("LowerPaddle") && (bounceCooldown == false))
@@ -57,7 +61,8 @@ public class BallBounce : MonoBehaviour
             speedX *= -1;
             speedY = 1;
             StartCoroutine(ActivateBounceCooldown());
-            Debug.Log("Tag: Lower Paddle");
+            //Debug.Log("Tag: Lower Paddle");
+            //IncreaseBallSpeed(1);
         }
     }
 
@@ -66,7 +71,7 @@ public class BallBounce : MonoBehaviour
         bounceCooldown = true;
         Debug.Log("BounceCooldown activated!");
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.01f);
 
         bounceCooldown = false;
         Debug.Log("BounceCooldown over!");
@@ -77,5 +82,18 @@ public class BallBounce : MonoBehaviour
     {
         transform.position = Vector3.zero;
         speedY = 0;
+    }
+
+    void IncreaseBallSpeed(float increaseSpeedBy)
+    {
+        if ((speedX > 0) && (speedX < 10))
+        {
+            speedX += increaseSpeedBy;
+        }
+
+        if ((speedX < 0) && (speedX < -10))
+        {
+            speedX -= increaseSpeedBy;
+        }
     }
 }   
