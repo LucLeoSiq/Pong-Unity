@@ -35,7 +35,7 @@ public class BallBounce : MonoBehaviour
         if (other.CompareTag("Boundary"))
         {
             speedY *= -1;
-            Debug.Log("Tag: Boundary");
+            //Debug.Log("Tag: Boundary");
         }
 
         else if (other.CompareTag("UpperPaddle") && (bounceCooldown == false))
@@ -69,12 +69,12 @@ public class BallBounce : MonoBehaviour
     private IEnumerator ActivateBounceCooldown()
     {
         bounceCooldown = true;
-        Debug.Log("BounceCooldown activated!");
+        //Debug.Log("BounceCooldown activated!");
 
         yield return new WaitForSeconds(0.01f);
 
         bounceCooldown = false;
-        Debug.Log("BounceCooldown over!");
+        //Debug.Log("BounceCooldown over!");
     }
 
     [NaughtyAttributes.Button]

@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 015b2c1390faa854bb96654c6bf4150b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 1
+  score: 0
   textMeshPro: {fileID: 1986121234}
   boxCollider2D: {fileID: 97689609}
 --- !u!1 &140503773
