@@ -6,7 +6,8 @@ using UnityEngine;
 public class ScoreBoard : MonoBehaviour
 {
     public int score = 0;
-    public TextMeshPro textMeshPro;
+    public TextMeshPro scoreTextMesh;
+    public GameObject gameEndTextMesh;
     public BoxCollider2D boxCollider2D;
 
     private void Start()
@@ -21,7 +22,11 @@ public class ScoreBoard : MonoBehaviour
 
     private void UpdateScore()
     {
-        textMeshPro.text = score.ToString();
+        scoreTextMesh.text = score.ToString();
+        if (score >= 10)
+        {
+            EndGame();
+        }
     }
 
     [NaughtyAttributes.Button]
@@ -29,5 +34,11 @@ public class ScoreBoard : MonoBehaviour
     {
         score += 1;
         UpdateScore();
+    }
+
+    public void EndGame()
+    {
+        Time.timeScale = 0f;
+        gameEndTextMesh.SetActive(true);
     }
 }
