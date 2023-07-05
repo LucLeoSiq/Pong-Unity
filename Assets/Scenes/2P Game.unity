@@ -583,9 +583,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 015b2c1390faa854bb96654c6bf4150b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 9
-  scoreTextMesh: {fileID: 1986121234}
-  gameEndTextMesh: {fileID: 2106803207}
+  score: 0
+  scoreTextMesh: {fileID: 2135940426}
+  gameEndTextMesh: {fileID: 1806348052}
   boxCollider2D: {fileID: 97689609}
 --- !u!1 &140503773
 GameObject:
@@ -1403,7 +1403,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 325235486}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: '# UI #'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2460,7 +2460,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 706745433}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: P1_Win Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5327,7 +5327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1728956948}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: P2_Wins Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6712,9 +6712,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 015b2c1390faa854bb96654c6bf4150b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 9
-  scoreTextMesh: {fileID: 2135940426}
-  gameEndTextMesh: {fileID: 1806348052}
+  score: 0
+  scoreTextMesh: {fileID: 1986121234}
+  gameEndTextMesh: {fileID: 2106803207}
   boxCollider2D: {fileID: 2131366926}
 --- !u!1 &2135940423
 GameObject:
