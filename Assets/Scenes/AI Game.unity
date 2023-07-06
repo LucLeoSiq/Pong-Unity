@@ -5221,7 +5221,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f68938087b10bf4d8bbe3d7537ac18b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedY: 0
+  angleY: 2
+  minAngleY: 0.5
+  maxAngleY: 5
   speedX: 10
   thisObject: {fileID: 1705167996}
   soundManager: {fileID: 575201233}
@@ -6941,6 +6943,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1964205125346115957, guid: d60abe1d4c43c5342a3921ad36b9d267, type: 3}
+      propertyPath: paddleSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1964205125346115957, guid: d60abe1d4c43c5342a3921ad36b9d267, type: 3}
       propertyPath: ballTransform
       value: 
