@@ -2,10 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BallBounce : MonoBehaviour
 {
-    public float speedY = 2;
+    [Header("Ball Movement")]
+    public float angleY = 1f;
+    public float minAngleY = 0.5f;
+    public float maxAngleY = 5f;
     public float speedX = 10;
 
     public GameObject thisObject;
@@ -26,7 +30,7 @@ public class BallBounce : MonoBehaviour
         if (isMoving)
         {
             transform.Translate(Vector3.right * speedX * Time.deltaTime);
-            transform.Translate(Vector3.down * speedY * Time.deltaTime);
+            transform.Translate(Vector3.down * angleY * Time.deltaTime);
         }
     }   
 
@@ -34,14 +38,14 @@ public class BallBounce : MonoBehaviour
     {
         if (other.CompareTag("Boundary"))
         {
-            speedY *= -1;
+            angleY *= -1;
             soundManager.playBoundaryBounceSFX(); 
         }
 
         else if (other.CompareTag("UpperPaddle") && (bounceCooldown == false))
         {
             speedX *= -1;
-            speedY = -1;
+            angleY = Random.Range(-minAngleY, -maxAngleY);
             StartCoroutine(ActivateBounceCooldown());
             soundManager.playPaddleBounceSFX();
         }
@@ -49,7 +53,7 @@ public class BallBounce : MonoBehaviour
         else if (other.CompareTag("MiddlePaddle") && (bounceCooldown == false))
         {
             speedX *= -1;
-            speedY = 0;
+            angleY = 0;
             StartCoroutine(ActivateBounceCooldown());
             soundManager.playPaddleBounceSFX();
         }
@@ -57,7 +61,7 @@ public class BallBounce : MonoBehaviour
         else if (other.CompareTag("LowerPaddle") && (bounceCooldown == false))
         {
             speedX *= -1;
-            speedY = 1;
+            angleY = Random.Range(minAngleY, maxAngleY);
             StartCoroutine(ActivateBounceCooldown());
             soundManager.playPaddleBounceSFX();
         }

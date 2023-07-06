@@ -7,7 +7,7 @@ public class BallReset : MonoBehaviour
     public BallBounce ballBounce;
     public SoundManager soundManager;
 
-    public float delayTime = 0.1f;
+    public float delayTime = 1f;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -38,7 +38,7 @@ public class BallReset : MonoBehaviour
     [NaughtyAttributes.Button]
     public void MoveInRandomDirection()
     {
-        ballBounce.speedY = Random.Range(-0.5f, 0.5f);
+        ballBounce.angleY = Random.Range(-2f, 2f);
         ballBounce.isMoving = true;
     }
 }
