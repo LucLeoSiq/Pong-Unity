@@ -6,23 +6,26 @@ using Random = UnityEngine.Random;
 
 public class BallBounce : MonoBehaviour
 {
+    public GameObject thisObject;
+    public SoundManager soundManager;
+
+    public float waitBeforeStart = 3f;
+
     [Header("Ball Movement")]
     public float angleY = 1f;
     public float minAngleY = 0.5f;
     public float maxAngleY = 5f;
     public float speedX = 10;
 
-    public GameObject thisObject;
-    public SoundManager soundManager;
-
     public bool isMoving = false;
     
     private bool bounceCooldown = false;
 
-    void Start()
+    void Awake()
     {
         transform.position = Vector3.zero;
-        isMoving = true;
+        isMoving = false;
+        StartCoroutine(WaitBeforeMoving(waitBeforeStart));
     }
 
     void Update()
@@ -74,5 +77,11 @@ public class BallBounce : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
 
         bounceCooldown = false;
+    }
+    private IEnumerator WaitBeforeMoving(float i)
+    {
+        yield return new WaitForSeconds(i);
+        
+        isMoving = true;
     }
 }   

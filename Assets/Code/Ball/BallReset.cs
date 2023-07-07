@@ -9,6 +9,11 @@ public class BallReset : MonoBehaviour
 
     public float delayTime = 1f;
 
+    private void Update()
+    {
+        ResetIfOutOfBounds();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("BackZone"))
@@ -40,5 +45,20 @@ public class BallReset : MonoBehaviour
     {
         ballBounce.angleY = Random.Range(-2f, 2f);
         ballBounce.isMoving = true;
+    }
+
+    private void ResetIfOutOfBounds()
+    {
+        if (transform.position.x < -12f || transform.position.x > 12f)
+        {
+            ResetBall();
+            StartCoroutine(MoveAfterDelay());
+        }
+
+        if (transform.position.y < -6f || transform.position.x > 6f)
+        {
+            ResetBall();
+            StartCoroutine(MoveAfterDelay());
+        }
     }
 }

@@ -5221,12 +5221,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f68938087b10bf4d8bbe3d7537ac18b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisObject: {fileID: 1705167996}
+  soundManager: {fileID: 575201233}
+  waitBeforeStart: 3
   angleY: 2
   minAngleY: 0.5
   maxAngleY: 5
   speedX: 10
-  thisObject: {fileID: 1705167996}
-  soundManager: {fileID: 575201233}
   isMoving: 0
 --- !u!212 &1705167998
 SpriteRenderer:
@@ -5356,7 +5357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballBounce: {fileID: 1705167997}
   soundManager: {fileID: 575201233}
-  delayTime: 2
+  delayTime: 3
 --- !u!1 &1728956947
 GameObject:
   m_ObjectHideFlags: 0
