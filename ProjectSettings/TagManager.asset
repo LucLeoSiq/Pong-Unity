@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bounce
+  - UpperPaddle
+  - MiddlePaddle
+  - LowerPaddle
+  - Boundary
+  - Ball
+  - BackZone
   layers:
   - Default
   - TransparentFX
