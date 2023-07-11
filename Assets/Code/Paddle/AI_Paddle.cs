@@ -2,7 +2,7 @@ using UnityEngine;
 public class AI_Paddle : MonoBehaviour
 {
     public Transform ballTransform;
-    public float paddleSpeed = 10f;
+    public float paddleSpeed;
 
     public Rigidbody2D paddleRb;
 
