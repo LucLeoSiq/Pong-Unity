@@ -4,7 +4,9 @@ public class MainManager : MonoBehaviour
 {
     public static MainManager Instance;
 
-    public string gameDifficulty = "Normal";
+    public Difficulty selectedDifficulty;
+
+    public enum Difficulty {Easy, Normal, Hard};
 
     private void Awake()
     {
@@ -16,5 +18,10 @@ public class MainManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void SelectedDifficulty(int index)
+    {
+        selectedDifficulty = (Difficulty)index;
     }
 }
