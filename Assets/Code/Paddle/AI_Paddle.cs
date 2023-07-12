@@ -49,5 +49,10 @@ public class AI_Paddle : MonoBehaviour
         {
             paddleSpeed = 4f;
         }
+
+        else
+        {
+            paddleSpeed = 3f;
+        }
     }
 }
