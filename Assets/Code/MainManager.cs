@@ -6,7 +6,10 @@ public class MainManager : MonoBehaviour
 
     public Difficulty selectedDifficulty;
 
+    public GameMode selectedGameMode;
+
     public enum Difficulty {Easy, Normal, Hard};
+    public enum GameMode {AI, PVP};
 
     private void Awake()
     {
@@ -23,5 +26,10 @@ public class MainManager : MonoBehaviour
     public void SelectedDifficulty(int index)
     {
         selectedDifficulty = (Difficulty)index;
+    }
+
+    public void SelectedGameMode(int index)
+    {
+        selectedGameMode = (GameMode)index;
     }
 }
