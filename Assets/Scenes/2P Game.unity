@@ -595,7 +595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 015b2c1390faa854bb96654c6bf4150b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
+  score: 1
   scoreTextMesh: {fileID: 2135940426}
   gameEndTextMesh: {fileID: 1806348052}
   boxCollider2D: {fileID: 97689609}
@@ -1924,12 +1924,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8163cb48a4ff17247a1119b09420092b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crtShader: {fileID: 4800000, guid: 0689447cb7008e84990a5b8ca7cf2dc1, type: 3}
-  image: {fileID: 0}
-  useImage: 1
-  curvature: 10
-  vignetteWidth: 30
-  crtMat: {fileID: 0}
 --- !u!1 &571545390
 GameObject:
   m_ObjectHideFlags: 0
@@ -6037,7 +6031,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6772,7 +6766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 015b2c1390faa854bb96654c6bf4150b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
+  score: 1
   scoreTextMesh: {fileID: 1986121234}
   gameEndTextMesh: {fileID: 2106803207}
   boxCollider2D: {fileID: 2131366926}
@@ -6835,7 +6829,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

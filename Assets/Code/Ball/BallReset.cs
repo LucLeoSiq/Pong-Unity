@@ -55,10 +55,12 @@ public class BallReset : MonoBehaviour
             StartCoroutine(MoveAfterDelay());
         }
 
-        if (transform.position.y < -6f || transform.position.x > 6f)
+        if (transform.position.y < -6f || transform.position.y > 6f)
         {
             ResetBall();
             StartCoroutine(MoveAfterDelay());
         }
+
+        Debug.Log("Ball out of bounds");
     }
 }
