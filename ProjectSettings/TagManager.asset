@@ -11,6 +11,8 @@ TagManager:
   - Boundary
   - Ball
   - BackZone
+  - P1_Backzone
+  - P2_Backzone
   layers:
   - Default
   - TransparentFX

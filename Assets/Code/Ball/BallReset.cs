@@ -15,7 +15,7 @@ public class BallReset : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("BackZone"))
+        if (other.CompareTag("P1_Backzone") || other.CompareTag("P2_Backzone"))
         {
             ResetBall();
             StartCoroutine(MoveAfterDelay());
@@ -52,14 +52,14 @@ public class BallReset : MonoBehaviour
         {
             ResetBall();
             StartCoroutine(MoveAfterDelay());
+            Debug.Log("Ball out of X bounds");
         }
 
         if (transform.position.y < -6f || transform.position.y > 6f)
         {
             ResetBall();
             StartCoroutine(MoveAfterDelay());
+            Debug.Log("Ball out of Y bounds");
         }
-
-        Debug.Log("Ball out of bounds");
     }
 }
