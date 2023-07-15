@@ -15,7 +15,8 @@ public class BallBounce : MonoBehaviour
     public float angleY = 1f;
     public float minAngleY = 0.5f;
     public float maxAngleY = 5f;
-    public float speedX = 10;
+    public float speedX = 10f;
+    public float maxSpeedX = 15f;
 
     public bool isMoving = false;
     
@@ -51,6 +52,7 @@ public class BallBounce : MonoBehaviour
             angleY = Random.Range(-minAngleY, -maxAngleY);
             StartCoroutine(ActivateBounceCooldown());
             soundManager.playPaddleBounceSFX();
+            IncreaseBallSpeedBy(1);
         }
 
         else if (other.CompareTag("MiddlePaddle") && (bounceCooldown == false))
@@ -59,6 +61,7 @@ public class BallBounce : MonoBehaviour
             angleY = 0;
             StartCoroutine(ActivateBounceCooldown());
             soundManager.playPaddleBounceSFX();
+            IncreaseBallSpeedBy(1);
         }
 
         else if (other.CompareTag("LowerPaddle") && (bounceCooldown == false))
@@ -67,6 +70,7 @@ public class BallBounce : MonoBehaviour
             angleY = Random.Range(minAngleY, maxAngleY);
             StartCoroutine(ActivateBounceCooldown());
             soundManager.playPaddleBounceSFX();
+            IncreaseBallSpeedBy(1);
         }
     }
 
@@ -83,5 +87,10 @@ public class BallBounce : MonoBehaviour
         yield return new WaitForSeconds(i);
         
         isMoving = true;
+    }
+
+    private void IncreaseBallSpeedBy(int speedIncrease)
+    {
+        if (speedX < maxSpeedX) speedX = speedX + speedIncrease;
     }
 }   
