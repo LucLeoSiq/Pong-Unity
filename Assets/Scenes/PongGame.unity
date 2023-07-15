@@ -3749,7 +3749,7 @@ GameObject:
   - component: {fileID: 1364404562}
   m_Layer: 0
   m_Name: P2_Paddle
-  m_TagString: Bounce
+  m_TagString: UpperPaddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4845,7 +4845,7 @@ MonoBehaviour:
   thisObject: {fileID: 1705167996}
   soundManager: {fileID: 575201233}
   waitBeforeStart: 3
-  angleY: 2
+  angleY: 0
   minAngleY: 0.5
   maxAngleY: 5
   speedX: 10
