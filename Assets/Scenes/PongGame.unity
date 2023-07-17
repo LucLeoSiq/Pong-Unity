@@ -3753,7 +3753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &1364404562
 Rigidbody2D:
   serializedVersion: 4
@@ -4849,6 +4849,7 @@ MonoBehaviour:
   minAngleY: 0.5
   maxAngleY: 5
   speedX: 10
+  maxSpeedX: 15
   isMoving: 0
 --- !u!212 &1705167998
 SpriteRenderer:

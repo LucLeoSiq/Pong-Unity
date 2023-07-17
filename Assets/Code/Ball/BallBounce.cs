@@ -48,29 +48,29 @@ public class BallBounce : MonoBehaviour
 
         else if (other.CompareTag("UpperPaddle") && (bounceCooldown == false))
         {
+            IncreaseBallSpeedBy();
             speedX *= -1;
             angleY = Random.Range(-minAngleY, -maxAngleY);
             StartCoroutine(ActivateBounceCooldown());
             soundManager.playPaddleBounceSFX();
-            IncreaseBallSpeedBy(1);
         }
 
         else if (other.CompareTag("MiddlePaddle") && (bounceCooldown == false))
         {
+            IncreaseBallSpeedBy();
             speedX *= -1;
             angleY = 0;
             StartCoroutine(ActivateBounceCooldown());
             soundManager.playPaddleBounceSFX();
-            IncreaseBallSpeedBy(1);
         }
 
         else if (other.CompareTag("LowerPaddle") && (bounceCooldown == false))
         {
+            IncreaseBallSpeedBy();
             speedX *= -1;
             angleY = Random.Range(minAngleY, maxAngleY);
             StartCoroutine(ActivateBounceCooldown());
             soundManager.playPaddleBounceSFX();
-            IncreaseBallSpeedBy(1);
         }
     }
 
@@ -89,8 +89,17 @@ public class BallBounce : MonoBehaviour
         isMoving = true;
     }
 
-    private void IncreaseBallSpeedBy(int speedIncrease)
+    private void IncreaseBallSpeedBy()
     {
-        if (speedX < maxSpeedX) speedX = speedX + speedIncrease;
+        if ((speedX > 0f) && (speedX < maxSpeedX))
+        {
+            speedX = speedX + 1;
+        }
+
+        else if ((speedX < 0f) && (speedX < -maxSpeedX))
+        {
+            speedX = speedX - 1;
+        }
+
     }
 }   
