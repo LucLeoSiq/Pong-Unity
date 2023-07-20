@@ -6,23 +6,27 @@ using Random = UnityEngine.Random;
 
 public class BallBounce : MonoBehaviour
 {
+    public GameObject thisObject;
+    public SoundManager soundManager;
+
+    public float waitBeforeStart = 3f;
+
     [Header("Ball Movement")]
     public float angleY = 1f;
     public float minAngleY = 0.5f;
     public float maxAngleY = 5f;
-    public float speedX = 10;
-
-    public GameObject thisObject;
-    public SoundManager soundManager;
+    public float speedX = 10f;
+    public float maxSpeedX = 15f;
 
     public bool isMoving = false;
     
     private bool bounceCooldown = false;
 
-    void Start()
+    void Awake()
     {
         transform.position = Vector3.zero;
-        isMoving = true;
+        isMoving = false;
+        StartCoroutine(WaitBeforeMoving(waitBeforeStart));
     }
 
     void Update()
@@ -44,6 +48,7 @@ public class BallBounce : MonoBehaviour
 
         else if (other.CompareTag("UpperPaddle") && (bounceCooldown == false))
         {
+            IncreaseBallSpeedBy();
             speedX *= -1;
             angleY = Random.Range(-minAngleY, -maxAngleY);
             StartCoroutine(ActivateBounceCooldown());
@@ -52,6 +57,7 @@ public class BallBounce : MonoBehaviour
 
         else if (other.CompareTag("MiddlePaddle") && (bounceCooldown == false))
         {
+            IncreaseBallSpeedBy();
             speedX *= -1;
             angleY = 0;
             StartCoroutine(ActivateBounceCooldown());
@@ -60,6 +66,7 @@ public class BallBounce : MonoBehaviour
 
         else if (other.CompareTag("LowerPaddle") && (bounceCooldown == false))
         {
+            IncreaseBallSpeedBy();
             speedX *= -1;
             angleY = Random.Range(minAngleY, maxAngleY);
             StartCoroutine(ActivateBounceCooldown());
@@ -74,5 +81,25 @@ public class BallBounce : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
 
         bounceCooldown = false;
+    }
+    private IEnumerator WaitBeforeMoving(float i)
+    {
+        yield return new WaitForSeconds(i);
+        
+        isMoving = true;
+    }
+
+    private void IncreaseBallSpeedBy()
+    {
+        if ((speedX > 0f) && (speedX < maxSpeedX))
+        {
+            speedX = speedX + 1;
+        }
+
+        else if ((speedX < 0f) && (speedX < -maxSpeedX))
+        {
+            speedX = speedX - 1;
+        }
+
     }
 }   

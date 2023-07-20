@@ -16,7 +16,7 @@ public class P2_PlayerMovement : MonoBehaviour
         MovementLimit();
     }
 
-    void PlayerYMovement()
+    private void PlayerYMovement()
     {
         float movementY = 0f;
 
@@ -33,10 +33,11 @@ public class P2_PlayerMovement : MonoBehaviour
         rb2d.velocity = movement;
     }
 
-    void MovementLimit()
+    private void MovementLimit()
     {
         Vector3 currentPosition = transform.position;
         currentPosition.y = Mathf.Clamp(currentPosition.y, minY, maxY);
         transform.position = currentPosition;
     }
+
 }

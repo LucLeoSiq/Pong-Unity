@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BallReset : MonoBehaviour
@@ -9,9 +8,14 @@ public class BallReset : MonoBehaviour
 
     public float delayTime = 1f;
 
+    private void Update()
+    {
+        ResetIfOutOfBounds();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("BackZone"))
+        if (other.CompareTag("P1_Backzone") || other.CompareTag("P2_Backzone"))
         {
             ResetBall();
             StartCoroutine(MoveAfterDelay());
@@ -40,5 +44,22 @@ public class BallReset : MonoBehaviour
     {
         ballBounce.angleY = Random.Range(-2f, 2f);
         ballBounce.isMoving = true;
+    }
+
+    private void ResetIfOutOfBounds()
+    {
+        if (transform.position.x < -12f || transform.position.x > 12f)
+        {
+            ResetBall();
+            StartCoroutine(MoveAfterDelay());
+            Debug.Log("Ball out of X bounds");
+        }
+
+        if (transform.position.y < -6f || transform.position.y > 6f)
+        {
+            ResetBall();
+            StartCoroutine(MoveAfterDelay());
+            Debug.Log("Ball out of Y bounds");
+        }
     }
 }

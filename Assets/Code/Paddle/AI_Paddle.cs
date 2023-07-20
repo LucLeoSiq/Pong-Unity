@@ -2,7 +2,7 @@ using UnityEngine;
 public class AI_Paddle : MonoBehaviour
 {
     public Transform ballTransform;
-    public float paddleSpeed = 10f;
+    public float paddleSpeed;
 
     public Rigidbody2D paddleRb;
 
@@ -13,6 +13,7 @@ public class AI_Paddle : MonoBehaviour
     private void Start()
     {
         paddleRb = GetComponent<Rigidbody2D>();
+        AdjustDifficulty();
     }
 
     private void FixedUpdate()
@@ -25,10 +26,33 @@ public class AI_Paddle : MonoBehaviour
         MovementLimit();
     }
 
-    void MovementLimit()
+    private void MovementLimit()
     {
         Vector3 currentPosition = transform.position;
         currentPosition.y = Mathf.Clamp(currentPosition.y, minY, maxY);
         transform.position = currentPosition;
+    }
+
+    private void AdjustDifficulty()
+    {
+        if (MainManager.Instance.selectedDifficulty == MainManager.Difficulty.Easy)
+        {
+            paddleSpeed = 2f;
+        }
+
+        else if (MainManager.Instance.selectedDifficulty == MainManager.Difficulty.Normal)
+        {
+            paddleSpeed = 3f;
+        }
+
+        else if (MainManager.Instance.selectedDifficulty == MainManager.Difficulty.Hard)
+        {
+            paddleSpeed = 4f;
+        }
+
+        else
+        {
+            paddleSpeed = 3f;
+        }
     }
 }
