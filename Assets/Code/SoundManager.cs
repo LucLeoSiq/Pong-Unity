@@ -13,6 +13,7 @@ public class SoundManager : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        CheckMute();
     }
 
     [NaughtyAttributes.Button]
@@ -27,6 +28,18 @@ public class SoundManager : MonoBehaviour
     public void playScoreSFX()
     {
         audioSource.PlayOneShot(scoreSFX);
+    }
+
+    public void CheckMute()
+    {
+        if (MainManager.Instance.MuteGame == true) ToggleMute();
+    }
+
+    [NaughtyAttributes.Button]
+    public void ToggleMute()
+    {
+        if (audioSource.mute == false) audioSource.mute = true;
+        else if (audioSource.mute == true) audioSource.mute = false;
     }
 }
 

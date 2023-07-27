@@ -524,7 +524,7 @@ MonoBehaviour:
   selectedDifficulty: 0
   selectedGameMode: 0
   CRTEffect: 0
-  MuteGame: 0
+  MuteGame: 1
 --- !u!1 &87254941
 GameObject:
   m_ObjectHideFlags: 0
