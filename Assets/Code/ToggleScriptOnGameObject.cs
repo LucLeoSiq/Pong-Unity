@@ -9,7 +9,7 @@ public class ToggleScriptOnGameObject : MonoBehaviour
 
     private void Start()
     {
-        ToggleTargetScript();
+
     }
 
     [NaughtyAttributes.Button]
