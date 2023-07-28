@@ -5307,7 +5307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisObject: {fileID: 1705167996}
   soundManager: {fileID: 575201233}
-  waitBeforeStart: 3
+  waitBeforeStart: 2
   angleY: 0
   minAngleY: 0.5
   maxAngleY: 5
