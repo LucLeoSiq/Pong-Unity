@@ -5,8 +5,9 @@ public class MainManager : MonoBehaviour
     public static MainManager Instance;
 
     public Difficulty selectedDifficulty;
-
     public GameMode selectedGameMode;
+    public bool CRTEffect = true;
+    public bool MuteGame;
 
     public enum Difficulty {Easy, Normal, Hard};
     public enum GameMode {AI, PVP};
